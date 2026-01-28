@@ -1,81 +1,95 @@
 import Coffee from "./coffee";
 
 // sample coffee data
-let coffeeData = [
+const coffeeData = [
   {
     id: 1,
     name: "Cappuchino",
     price: 4.5,
+    img: "/productImages/cappuchino.png",
   },
-
   {
     id: 2,
-    name: "Adrak vali Chai",
+    name: "Kulhad Chai",
     price: 0.5,
+    img: "/productImages/kulhadChai.png",
   },
-
   {
     id: 3,
-    name: "Falooda",
+    name: "Espresso",
     price: 0.5,
+    img: "/productImages/espresso.png",
   },
-
   {
     id: 4,
-    name: "Espresso",
-    price: 3.0,
+    name: "Latte",
+    price: 4.0,
+    img: "/productImages/latte.png",
   },
 
   {
     id: 5,
-    name: "Latte",
-    price: 4.0,
-  },
-
-  {
-    id: 6,
     name: "Mocha",
     price: 4.75,
+    img: "/productImages/mocha.png",
   },
-
   {
-    id: 7,
+    id: 6,
     name: "Americano",
     price: 3.5,
+    img: "/productImages/americano.png",
   },
-
   {
-    id: 8,
+    id: 7,
     name: "Macchiato",
     price: 4.25,
+    img: "/productImages/macchiato.png",
   },
-
   {
-    id: 9,
+    id: 8,
     name: "Cortado",
     price: 3.75,
+    img: "/productImages/cortado.png",
   },
-
+  {
+    id: 9,
+    name: "Masala Chai",
+    price: 4.5,
+    img: "/productImages/masalaChai.png",
+  },
   {
     id: 10,
-    name: "Flat White",
-    price: 4.5,
+    name: "Kashmiri Kahwa",
+    price: 5.0,
+    img: "/productImages/kashmiriKahwa.png",
   },
-
   {
     id: 11,
-    name: "Affogato",
-    price: 5.0,
+    name: "Noon Chai",
+    price: 170,
+    img: "/productImages/noonChai.png",
   },
 ];
 
-function Menu() {
+function Menu({ islogin }) {
   return (
     <>
-      <div className="grid auto-cols-[minmax(0,1fr)] grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-5">
+      <div
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 m-5 border-2 border-cream p-10 pt-5 rounded-lg"
+        id="menu"
+      >
+        <h1 className="col-span-full text-4xl font-bold font-pacifico text-center text-cream mb-8">
+          Menu
+        </h1>
         {/* Conditional Rendering */}
         {coffeeData.map((coffee) => (
-          <Coffee name={coffee.name} price={coffee.price} key={coffee.id} />
+          <Coffee
+            name={coffee.name}
+            price={coffee.price}
+            img={coffee.img}
+            login={islogin}
+            key={coffee.id}
+          />
         ))}
       </div>
     </>

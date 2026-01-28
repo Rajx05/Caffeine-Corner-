@@ -4,19 +4,24 @@ import Head from "./components/head";
 import Menu from "./components/menu";
 import Footer from "./components/footer";
 import PageNav from "./components/pageNav";
+import Highlights from "./components/highlights";
 
 function App() {
+  // Global States
   const [page, setPage] = useState(0);
+  const [isLogin, setLogin] = useState(false);
+  const [search, setSearch] = useState("");
 
-  // setter function for updating page
+  // setter functions
   function setter() {
     setPage((p) => p + 1);
   }
 
   return (
     <>
-      <Head />
-      <Menu />
+      <Head search={search} setSearch={setSearch} />
+      <Highlights />
+      <Menu islogin={isLogin} />
       <PageNav setter={setter} page={page} />
       <Footer />
     </>
